@@ -1,5 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import emailRouter from '@/modules/email/router'
+import smsRouter from '@/modules/sms/router'
+import whatsAppRouter from '@/modules/whatsapp/router'
 
 const routes = [
   {
@@ -14,6 +17,18 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
+  {
+    path:'/email',
+    ...emailRouter
+  },
+  {
+    path:'/sms',
+    ...smsRouter
+  },
+  {
+    path:'/whatsApp',
+    ...whatsAppRouter
   }
 ]
 
